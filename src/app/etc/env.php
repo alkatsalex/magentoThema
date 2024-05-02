@@ -136,5 +136,14 @@ return [
     ],
     'install' => [
         'date' => 'Tue, 23 Apr 2024 16:11:23 +0000'
+    ],
+    'system' => [
+        'default' => [
+            'dev' => [
+                'static' => [
+                    'sing' => 0
+                ]
+            ]
+        ]
     ]
 ];
