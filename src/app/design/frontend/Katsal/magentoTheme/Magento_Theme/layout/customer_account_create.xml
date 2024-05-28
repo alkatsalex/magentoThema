@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-right" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Create New Customer Account</title>
+    </head>
+    <body>
+
+
+        <referenceContainer name="div.sidebar.additional">
+
+            <referenceContainer name="sidebar.additional" remove="true">
+            </referenceContainer>
+
+            <container name="castom-container" htmlTag="div" htmlClass="qwe">
+                <block name="castom-text" class="Magento\Framework\View\Element\Text">
+                    <arguments>
+                        <argument name="text" xsi:type="string">Права и обязанности пользователя. Права и обязанности пользователя. Права и обязанности пользователя. Права и обязанности пользователя. Права и обязанности пользователя. Права и обязанности пользователя. Права и обязанности пользователя. Права и обязанности пользователя. Права и обязанности пользователя. Права и обязанности пользователя. Права и обязанности пользователя. Права и обязанности пользователя. Права и обязанности пользователя. Права и обязанности пользователя. Права и обязанности пользователя. </argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+
+    </body>
+</page>

@@ -6,5 +6,19 @@
                 <argument name="logo_width" xsi:type="number">350</argument>
             </arguments>
         </referenceBlock>
+        <move element="page.main.title" destination="content" before="-"/> 
+        <move element="product.info.stock.sku" destination="product.info.main" after="product.info.price"/> 
+        
+        <referenceContainer name="content">
+            <container name="castom-container" htmlTag="h1" htmlClass="qwe">
+                <block name="castom-text"  class="Magento\Framework\View\Element\Text">
+                    <arguments>
+                        <argument name="text" xsi:type="string">Alex Katsal</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+        
     </body>
 </page>
+ 
