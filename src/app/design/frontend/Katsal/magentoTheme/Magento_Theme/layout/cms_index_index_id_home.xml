@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+
+        <referenceContainer name="content">
+
+            <container name="welcome-container" htmlTag="h1" htmlClass="welcome title">
+                <block name="welcome-block" class="Magento\Framework\View\Element\Text">
+                    <arguments>
+                        <argument name="text" xsi:type="string">Добро пожаловать в Perspective Team</argument>
+                    </arguments>
+                </block>
+            </container>
+
+        </referenceContainer>
+
+
+
+    </body>
+</page>

@@ -6,19 +6,53 @@
                 <argument name="logo_width" xsi:type="number">350</argument>
             </arguments>
         </referenceBlock>
-        <move element="page.main.title" destination="content" before="-"/> 
-        <move element="product.info.stock.sku" destination="product.info.main" after="product.info.price"/> 
-        
+        <move element="product.info.stock.sku" destination="product.info.main" after="product.info.price"/>
+
         <referenceContainer name="content">
-            <container name="castom-container" htmlTag="h1" htmlClass="qwe">
-                <block name="castom-text"  class="Magento\Framework\View\Element\Text">
+        <block template="Magento_Theme::custom.phtml"/>
+        </referenceContainer>
+
+ 
+
+        <referenceContainer name="footer">
+            <container name="castom_footer-containers" htmlTag="div" htmlClass="contact-info" after="footer_links">
+
+            <block class="Magento\Theme\Block\Html\Header\Logo" name="footer-logo">
                     <arguments>
-                        <argument name="text" xsi:type="string">Alex Katsal</argument>
+                        <argument name="logoPathResolver" xsi:type="object">Magento\Theme\ViewModel\Block\Html\Header\LogoPathResolver</argument>
+                        <argument name="logo_size_resolver" xsi:type="object">Magento\Theme\ViewModel\Block\Html\Header\LogoSizeResolver</argument>
                     </arguments>
                 </block>
+
+                <container name="castom_footer-container1" htmlTag="div" htmlClass="contact-info">
+                    <block name="castom-footer-text" class="Magento\Framework\View\Element\Text">
+                        <arguments>
+                            <argument name="text" xsi:type="string">tel: +1 312-239-0843</argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="castom_footer-container2" htmlTag="div" htmlClass="contact-info">
+                    <block name="castom-footer-text2" class="Magento\Framework\View\Element\Text">
+                        <arguments>
+                            <argument name="text" xsi:type="string">email: order@perspectiveteam.com</argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="castom_footer-container3" htmlTag="div" htmlClass="contact-info">
+                    <block name="castom-footer-text3" class="Magento\Framework\View\Element\Text">
+                        <arguments>
+                            <argument name="text" xsi:type="string">location: Kyiv, 15a Tumaniana</argument>
+                        </arguments>
+                    </block>
+                </container>
+
             </container>
         </referenceContainer>
-        
+
+
+
     </body>
 </page>
  

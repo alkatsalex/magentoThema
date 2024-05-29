@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="checkout_cart_item_renderers"/>
+    <body>
+
+        <referenceContainer name="checkout.cart.container">
+            <container name="custom-container-for-cart.summary" htmlTag="div" htmlClass="container-for-summary" before="-"/>
+            <referenceContainer name="cart.summary">
+            </referenceContainer>
+        </referenceContainer>
+
+        <move element="cart.summary" destination="custom-container-for-cart.summary" before="-"/>
+
+    </body>
+</page>
