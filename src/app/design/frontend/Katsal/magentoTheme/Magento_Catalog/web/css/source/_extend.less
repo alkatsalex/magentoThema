@@ -30,3 +30,39 @@
     transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+//новий прогрес бар
+
+//видалення зірок🎇
+.rating-summary .rating-result:before {
+    display: none;
+}
+.rating-summary .rating-result > span::before {
+    display: none;
+}
+
+// стилізація нового пб
+.rating-summary .rating-result {
+    margin-left: 8px;
+    width: 120px; /* Ширина смуги рейтингу */
+    height: 20px; /* Висота смуги рейтингу */
+    background-color: #f0f0f0; /* Колір фону смуги рейтингу */
+    border-radius: 5px; /* Закруглені кути смуги рейтингу */
+    overflow: hidden; /* Обмеження вмісту за межі області відображення */
+}
+
+.rating-summary .rating-result > span {
+    height: 100%; /* Висота заливки смуги рейтингу */
+    background-color: orange;
+    border-radius: 5px;
+}
+
+.rating-summary .rating-result > span span {
+    font-size: 16px;
+    color: #333;
+    position: relative;
+    padding-left: 8px;
+    span {
+        padding-left: 0px;
+    }
+}
