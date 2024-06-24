@@ -66,3 +66,83 @@
         padding-left: 0px;
     }
 }
+
+// 1 картка до 375px (перевизначена зміна @screen__xs)
+
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__asd) {
+    .page-products {
+        .products-grid {
+            .product-items {
+                margin: 0;
+            }
+
+            .product-item {
+                margin-left: 2%;
+                padding: 0;
+                width: 100%;
+            }
+        }
+    }
+}
+// 2 картки від 640 до 786px
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__s) {
+    .page-products {
+        .products-grid {
+            .product-items {
+                margin: 0;
+            }
+
+            .product-item {
+                margin-left: 2%;
+                padding: 0;
+                width: calc(~"(100% - 6%) / 2");
+
+                &:nth-child(2n + 1) {
+                    margin-left: 2%;
+                }
+
+                &:nth-child(2n + 1) {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+// 5 карток від 1280px(перевизначена зміна @screen__xl)
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__xl) {
+    .page-products {
+        .products-grid {
+            .product-items {
+                margin: 0;
+            }
+
+            .product-item {
+                margin-left: 2%;
+                padding: 0;
+                width: 20%;
+                margin-left: calc(~"(100% - 5 * 20%) / 5");
+
+                &:nth-child(3n + 1) {
+                    margin-left: 0;
+                }
+
+                &:nth-child(4n + 1) {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
