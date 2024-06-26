@@ -1,0 +1,40 @@
+#search {
+    background-color: #232120;
+    border: none;
+    border-bottom: 1px solid #504f4f;
+
+    .input-text {
+        padding: 0;
+    }
+}
+
+.header.content {
+    display: flex;
+}
+
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    .block-search {
+        float: none;
+        width: 310px;
+        padding: 0;
+        .control {
+            padding: 0;
+
+            position: relative;
+        }
+    }
+}
+
+.minicart-wrapper {
+    display: none;
+}
+
+.search-svg {
+    position: absolute;
+    right: 0;
+    top: 0;
+}

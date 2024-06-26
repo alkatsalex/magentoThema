@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceContainer name="header.panel" remove="true"/>
+
+
+        <referenceContainer name="header.container">
+            <referenceBlock name="logo" remove="true"/>
+
+            <container name="review.header.wrapper.second" htmlTag="div" htmlClass="header_content_custom" before="-">
+                <block class="Magento\Theme\Block\Html\Header\Logo" name="footer-logo">
+                    <arguments>
+                        <argument name="logoPathResolver" xsi:type="object">Magento\Theme\ViewModel\Block\Html\Header\LogoPathResolver</argument>
+                        <argument name="logo_size_resolver" xsi:type="object">Magento\Theme\ViewModel\Block\Html\Header\LogoSizeResolver</argument>
+                    </arguments>
+                </block>
+
+                <container name="nav.menu" htmlTag="div" htmlClass="nav_menu">
+                    <block name="nav_list" template="Magento_Wishlist::nav_list.phtml"/>
+
+                </container>
+            </container>
+            <referenceContainer name="header-wrapper">
+            <container name="svg.list" htmlTag="div" htmlClass="svg_list" before="-">
+            <!-- <container name="svg.list.wraper" htmlTag="div" htmlClass="svg-icon-list">
+            <container name="svg.list.ul" htmlTag="ul"> -->
+                <block class="Magento\Framework\View\Element\Template" name="vendor.module.svgcontainer" template="Magento_Wishlist::svg-container.phtml" />
+                <!-- <block class="Magento\Framework\View\Element\Template" name="vendor.module.svgcontainer2" template="Magento_Wishlist::svg-container2.phtml" />
+                <block class="Magento\Framework\View\Element\Template" name="vendor.module.svgcontainer3" template="Magento_Wishlist::svg-container3.phtml" />
+                <block class="Magento\Framework\View\Element\Template" name="vendor.module.svgcontainer4" template="Magento_Wishlist::svg-container4.phtml" /> -->
+            <!-- </container>
+            </container> -->
+            </container>
+            <container name="search.leng.menu.wrapper" htmlTag="div" htmlClass="wrapper">
+            <container name="leng.wrapper" htmlTag="div" htmlClass="leng.wrapper">
+              <block class="Magento\Framework\View\Element\Template" name="leng" template="Magento_Wishlist::leng.phtml" />
+            </container>
+            <container name="menu.svg.wrapper" htmlTag="div" htmlClass="menu.svg.wrapper" after="-">
+              <block class="Magento\Framework\View\Element\Template" name="menu" template="Magento_Wishlist::menu_svg.phtml" />
+            </container>
+            </container>
+            </referenceContainer>
+        </referenceContainer>
+
+        <referenceContainer name="content">
+        </referenceContainer>
+        <move element="top.search" destination="search.leng.menu.wrapper" before="-"/>
+    </body>
+</page>
+
+

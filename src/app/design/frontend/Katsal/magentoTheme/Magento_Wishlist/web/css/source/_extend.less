@@ -1,0 +1,152 @@
+:root {
+    --orange: #fc682e;
+    --red: #be0e34;
+    --green: #2ccda6;
+    --gray-bg: #3b3937;
+    --dark-gray-bg: #232120;
+    --gray-3: #1c1a19;
+    --gray-buttons: #949494;
+    --soft-grey-bg: #eaeeef;
+    --text: #232120;
+    --lines: #eaeeef;
+    --white: #fff;
+    --icons: #c4c4c4;
+    --yellow: #e7a23c;
+    --secondary-text: #5c5c5c;
+    --line-dark-mode: #575554;
+}
+
+.page-header {
+    display: flex;
+}
+
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    .header.content {
+        max-width: 10000px;
+        padding: 0;
+        width: 50%;
+        margin: 0;
+        background-color: var(--dark-gray-bg);
+    }
+    .logo {
+        margin: 0;
+        padding-left: 64px;
+    }
+}
+
+.header_content_custom {
+    width: 50%;
+    background-color: var(--gray-bg);
+    display: flex;
+}
+
+.nav_list {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    height: 100%;
+    li {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}
+
+.nav_menu {
+    margin-left: auto;
+    margin-right: 56px;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #d0cfce;
+}
+
+/////
+
+.svg_list {
+    width: 220px;
+    margin-left: 56px;
+    height: 78px;
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+}
+
+.svg-icon-list {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.svg-icon-list ul {
+    display: flex;
+    gap: 40px; /* Расстояние между иконками */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.svg-icon-list li {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    background: none;
+}
+
+.svg-icon-list a {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    text-decoration: none; /* Убираем подчеркивание у ссылок */
+    color: inherit; /* Наследуем цвет, чтобы текст ссылок не выделялся */
+}
+
+.svg-icon-list svg {
+    width: 24px; /* Маленький размер иконок */
+    height: 24px; /* Маленький размер иконок */
+    display: inline-block;
+}
+
+.minicart-wrapper .action.showcart {
+    display: none;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 80px;
+    gap: 40px;
+}
+
+.leng {
+    display: flex;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    text-align: right;
+    color: var(--icons);
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-transform: uppercase;
+    p {
+        margin: 0;
+    }
+}
+
+// .leng.svg {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+.actions .action.search {
+    display: none;
+    fill: #1c1a19;
+}

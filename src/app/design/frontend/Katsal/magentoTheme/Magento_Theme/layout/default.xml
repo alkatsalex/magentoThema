@@ -3,7 +3,7 @@
     <body>
         <referenceBlock name="logo">
             <arguments>
-                <argument name="logo_width" xsi:type="number">350</argument>
+                <argument name="logo_width" xsi:type="number">200</argument>
             </arguments>
         </referenceBlock>
         <move element="product.info.stock.sku" destination="product.info.main" after="product.info.price"/>
