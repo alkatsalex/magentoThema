@@ -8,9 +8,9 @@
         </referenceBlock>
         <move element="product.info.stock.sku" destination="product.info.main" after="product.info.price"/>
 
-        <referenceContainer name="content">
+        <!-- <referenceContainer name="content">
         <block template="Magento_Theme::custom.phtml"/>
-        </referenceContainer>
+        </referenceContainer> -->
 
  
 
