@@ -70,8 +70,15 @@
             <container name="custom.breadcrumbs" htmlTag="div" htmlClass="custom_breadcrumbs" before="-">
                 <block name="custom.block.breadcrumbs" template="Magento_Wishlist::custom.breadcrumbs.phtml" />
             </container>
-            <container name="page.main.title" htmlTag="div" htmlClass="page-title-wrapper">
+            <referenceContainer name="page.main.title" remove="true"/>
+            <container name="custom.page.main.title" htmlTag="div" htmlClass="page-title-wrapper">
                 <block name="custom_title_wishlist" template="Magento_Wishlist::custom_title_wishlist.phtml"/>
+            </container>
+
+            <container name="wishlist_wrapper_list" htmlTag="div" htmlClass="wishlist_wrapper">
+                <container name="wishlist_filter" htmlTag="div" htmlClass="wishlist_filter">
+                    <block name="wishlist_filter_list" template="Magento_Wishlist::wishlist_filter_list.phtml"/>
+                </container>
             </container>
 
         </referenceContainer>
