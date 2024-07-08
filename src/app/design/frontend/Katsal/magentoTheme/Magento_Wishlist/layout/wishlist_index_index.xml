@@ -92,6 +92,7 @@
                     <argument name="wishlist_list_item_review" xsi:type="number">3</argument>
                     <argument name="wishlist_list_item_price" xsi:type="number">21999</argument>
                     <argument name="wishlist_list_item_old_price" xsi:type="number">33999</argument>
+                    <argument name="wishlist_list_item_el_display" xsi:type="string">none</argument>
                     </arguments>
                     </block>
                     <block name="wishlist_list_item2" template="Magento_Wishlist::wishlist_list.phtml">
@@ -170,6 +171,9 @@
         </referenceContainer>
         <referenceContainer name="footer-container">
         <referenceContainer name="footer" remove="true"/>
+        <container name="advantages-container" htmlTag="div" htmlClass="advantages-container">
+
+        </container>
         </referenceContainer>
 
         <move element="top.search" destination="search.leng.menu.wrapper" before="-"/>

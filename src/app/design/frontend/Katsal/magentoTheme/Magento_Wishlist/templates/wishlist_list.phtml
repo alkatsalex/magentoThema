@@ -22,13 +22,16 @@ $wishlist_list_item_rating = $block->escapeHtml($block->getData('wishlist_list_i
 $wishlist_list_item_review = $block->escapeHtml($block->getData('wishlist_list_item_review'));
 $wishlist_list_item_price = $block->escapeHtml($block->getData('wishlist_list_item_price'));
 $wishlist_list_item_old_price = $block->escapeHtml($block->getData('wishlist_list_item_old_price'));
+$wishlist_list_item_el_display = $block->escapeHtml($block->getData('wishlist_list_item_el_display'));
 $rating = $wishlist_list_item_rating ;
 $wishlist_list_discount = round(($wishlist_list_item_old_price - $wishlist_list_item_price) / $wishlist_list_item_old_price*100);
 $formattedPrice = number_format($wishlist_list_item_price, 0, '.', ' ');
 ?>
 
 <div class="product-card">
-        <div class="discount-banner">
+        <div class="discount-banner"
+        style="display:<?=$wishlist_list_item_el_display?$wishlist_list_item_el_display:true?>"
+        >
             <span>-<?=$wishlist_list_discount?></span>
             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.732 7.69139C16.8158 7.60676 16.9161 7.53927 17.027 7.49283C17.1379 7.4464 17.2571 7.42195 17.3778 7.42093C17.4984 7.41991 17.6181 7.44233 17.7298 7.48688C17.8414 7.53143 17.9429 7.59722 18.0282 7.68041C18.1136 7.7636 18.181 7.86252 18.2267 7.97141C18.2724 8.0803 18.2954 8.19697 18.2944 8.31461C18.2933 8.43226 18.2682 8.54852 18.2206 8.65662C18.173 8.76471 18.1038 8.86248 18.017 8.94421L9.02051 17.7158C8.84912 17.8772 8.61957 17.9665 8.38131 17.9644C8.14304 17.9624 7.91512 17.8692 7.74663 17.705C7.57814 17.5407 7.48257 17.3185 7.4805 17.0862C7.47843 16.8538 7.57003 16.63 7.73556 16.4629L16.732 7.69139Z" fill="white" />
@@ -63,7 +66,11 @@ $formattedPrice = number_format($wishlist_list_item_price, 0, '.', ' ');
          </div>
         <div class="product-price">
             <span><?=$formattedPrice?> грн</span>
-            <span class="product-old-price"><?=$wishlist_list_item_old_price?> грн</span>
+            <span
+             style="display:<?=$wishlist_list_item_el_display?$wishlist_list_item_el_display:true?>"
+             class="product-old-price">
+            <?=$wishlist_list_item_old_price?> грн
+            </span>
         </div>
         <div class="buy-button_wrapper">
           <button class="buy-button">
