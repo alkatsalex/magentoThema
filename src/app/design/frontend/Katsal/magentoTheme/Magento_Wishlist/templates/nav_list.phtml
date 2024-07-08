@@ -10,11 +10,12 @@
 /** @var \Magento\Contact\Block\ContactForm $block */
 /** @var \Magento\Contact\ViewModel\UserDataProvider $viewModel */
 
-$viewModel = $block->getViewModel();
-$text = $block->getData('text_before_contactForm');
+// Получение данных из блока или ViewModel
+$itemFirst = $block->escapeHtml($block->getData('item_first'));
+$itemSecond = $block->escapeHtml($block->getData('item_second'));
 ?>
 
 <ul class="nav_list">
-    <li>кавомашини</li>
-    <li>аксесуари</li>
+    <li><?= $itemFirst ?></li>
+    <li><?= $itemSecond ?></li>
 </ul>

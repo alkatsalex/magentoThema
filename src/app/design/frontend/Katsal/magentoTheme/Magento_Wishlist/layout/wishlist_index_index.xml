@@ -23,8 +23,12 @@
                 </block>
 
                 <container name="nav.menu" htmlTag="div" htmlClass="nav_menu">
-                    <block name="nav_list" template="Magento_Wishlist::nav_list.phtml"/>
-
+                    <block name="nav_list" template="Magento_Wishlist::nav_list.phtml">
+                    <arguments>
+                    <argument name="item_first" xsi:type="string">кавомашини</argument>
+                    <argument name="item_second" xsi:type="string">аксесуари</argument>
+                    </arguments>
+                    </block>
                 </container>
             </container>
             <referenceContainer name="header-wrapper">
@@ -75,12 +79,97 @@
                 <block name="custom_title_wishlist" template="Magento_Wishlist::custom_title_wishlist.phtml"/>
             </container>
 
-            <container name="wishlist_wrapper_list" htmlTag="div" htmlClass="wishlist_wrapper">
+            <container name="wishlist_wrapper" htmlTag="div" htmlClass="wishlist_wrapper">
                 <container name="wishlist_filter" htmlTag="div" htmlClass="wishlist_filter">
                     <block name="wishlist_filter_list" template="Magento_Wishlist::wishlist_filter_list.phtml"/>
                 </container>
+                <container name="wishlist_wrapper_list" htmlTag="div" htmlClass="wishlist_wrapper_list">
+                    <block name="wishlist_list_item" template="Magento_Wishlist::wishlist_list.phtml">
+                    <arguments>
+                    <argument name="wishlist_list_item_title" xsi:type="string">АВТОМАТИЧНА КАВОМАШИНА KRUPS INTUITION EXPERIENCE+ EA877D10</argument>
+                    <argument name="wishlist_list_item_photo" xsi:type="string">https://www.krups.ua/media/mf_webp/jpg/media/catalog/product/cache/38345e2159b3dd0957eda1ffecaeede2/a/v/avtomatichna-kofemashina-krups-intuition-experience-ea877d10-main-1.webp</argument>
+                    <argument name="wishlist_list_item_rating" xsi:type="number">80</argument>
+                    <argument name="wishlist_list_item_review" xsi:type="number">3</argument>
+                    <argument name="wishlist_list_item_price" xsi:type="number">21999</argument>
+                    <argument name="wishlist_list_item_old_price" xsi:type="number">33999</argument>
+                    </arguments>
+                    </block>
+                    <block name="wishlist_list_item2" template="Magento_Wishlist::wishlist_list.phtml">
+                    <arguments>
+                    <argument name="wishlist_list_item_title" xsi:type="string">АВТОМАТИЧНА КАВОМАШИНА KRUPS EVIDENCE ECO-DESIGN EA897B10</argument>
+                    <argument name="wishlist_list_item_photo" xsi:type="string">https://www.krups.ua/media/mf_webp/jpg/media/catalog/product/cache/38345e2159b3dd0957eda1ffecaeede2/a/v/avtomatichna-kavomashina-krups-evidence-eco-design-ea897b10-foto-1.webp</argument>
+                    <argument name="wishlist_list_item_rating" xsi:type="number">98</argument>
+                    <argument name="wishlist_list_item_review" xsi:type="number">39</argument>
+                    <argument name="wishlist_list_item_price" xsi:type="number">20499</argument>
+                    <argument name="wishlist_list_item_old_price" xsi:type="number">36299</argument>
+                    </arguments>
+                    </block>
+                    <block name="wishlist_list_item3" template="Magento_Wishlist::wishlist_list.phtml">
+                    <arguments>
+                    <argument name="wishlist_list_item_title" xsi:type="string">АВТОМАТИЧНА КАВОМАШИНА KRUPS INTUITION PREFERENCE EA875E10</argument>
+                    <argument name="wishlist_list_item_photo" xsi:type="string">https://www.krups.ua/media/mf_webp/jpg/media/catalog/product/cache/38345e2159b3dd0957eda1ffecaeede2/a/v/avtomatichna-kavomashina-krups-intuition-preference-ea875e10-foto-1_1.webp</argument>
+                    <argument name="wishlist_list_item_rating" xsi:type="number">100</argument>
+                    <argument name="wishlist_list_item_review" xsi:type="number">12</argument>
+                    <argument name="wishlist_list_item_price" xsi:type="number">37999</argument>
+                    <argument name="wishlist_list_item_old_price" xsi:type="number">59999</argument>
+                    </arguments>
+                    </block>
+                    <block name="wishlist_list_item4" template="Magento_Wishlist::wishlist_list.phtml">
+                    <arguments>
+                    <argument name="wishlist_list_item_title" xsi:type="string">АВТОМАТИЧНА КАВОМАШИНА КRUPS EVIDENCE ONE EA895N10</argument>
+                    <argument name="wishlist_list_item_photo" xsi:type="string">https://www.krups.ua/media/mf_webp/jpg/media/catalog/product/cache/38345e2159b3dd0957eda1ffecaeede2/a/v/avtomatichna-kavomashina-krups-evidence-one-ea895n10-foto-1.webp</argument>
+                    <argument name="wishlist_list_item_rating" xsi:type="number">66</argument>
+                    <argument name="wishlist_list_item_review" xsi:type="number">18</argument>
+                    <argument name="wishlist_list_item_price" xsi:type="number">26499</argument>
+                    <argument name="wishlist_list_item_old_price" xsi:type="number">45499</argument>
+                    </arguments>
+                    </block>
+                    <block name="wishlist_list_item5" template="Magento_Wishlist::wishlist_list.phtml">
+                    <arguments>
+                    <argument name="wishlist_list_item_title" xsi:type="string">АВТОМАТИЧНА КАВОМАШИНА KRUPS INTUITION EXPERIENCE+ EA877D10</argument>
+                    <argument name="wishlist_list_item_photo" xsi:type="string">https://www.krups.ua/media/mf_webp/jpg/media/catalog/product/cache/38345e2159b3dd0957eda1ffecaeede2/a/v/avtomatichna-kavomashina-krups-evidence-plus-ea894t10-foto-1n.webp</argument>
+                    <argument name="wishlist_list_item_rating" xsi:type="number">100</argument>
+                    <argument name="wishlist_list_item_review" xsi:type="number">29</argument>
+                    <argument name="wishlist_list_item_price" xsi:type="number">30999</argument>
+                    <argument name="wishlist_list_item_old_price" xsi:type="number">48399</argument>
+                    </arguments>
+                    </block>
+                    <block name="wishlist_list_item6" template="Magento_Wishlist::wishlist_list.phtml">
+                    <arguments>
+                    <argument name="wishlist_list_item_title" xsi:type="string">АВТОМАТИЧНА КАВОМАШИНА KRUPS EVIDENCE ECO-DESIGN EA897B10</argument>
+                    <argument name="wishlist_list_item_photo" xsi:type="string">https://www.krups.ua/media/mf_webp/jpg/media/catalog/product/cache/38345e2159b3dd0957eda1ffecaeede2/e/a/ea891d10-foto-1.webp</argument>
+                    <argument name="wishlist_list_item_rating" xsi:type="number">100</argument>
+                    <argument name="wishlist_list_item_review" xsi:type="number">22</argument>
+                    <argument name="wishlist_list_item_price" xsi:type="number">24499</argument>
+                    <argument name="wishlist_list_item_old_price" xsi:type="number">42199</argument>
+                    </arguments>
+                    </block>
+                    <block name="wishlist_list_item7" template="Magento_Wishlist::wishlist_list.phtml">
+                    <arguments>
+                    <argument name="wishlist_list_item_title" xsi:type="string">АВТОМАТИЧНА КАВОМАШИНА KRUPS INTUITION PREFERENCE EA872A10</argument>
+                    <argument name="wishlist_list_item_photo" xsi:type="string">https://www.krups.ua/media/mf_webp/jpg/media/catalog/product/cache/38345e2159b3dd0957eda1ffecaeede2/a/v/avtomatichna-kavomashina-krups-intuition-preference-ea872a10-foto-1.webp</argument>
+                    <argument name="wishlist_list_item_rating" xsi:type="number">88</argument>
+                    <argument name="wishlist_list_item_review" xsi:type="number">16</argument>
+                    <argument name="wishlist_list_item_price" xsi:type="number">35999</argument>
+                    <argument name="wishlist_list_item_old_price" xsi:type="number">56899</argument>
+                    </arguments>
+                    </block>
+                    <block name="wishlist_list_item8" template="Magento_Wishlist::wishlist_list.phtml">
+                    <arguments>
+                    <argument name="wishlist_list_item_title" xsi:type="string">АВТОМАТИЧНА КАВОМАШИНА KRUPS ARABICA EA817010</argument>
+                    <argument name="wishlist_list_item_photo" xsi:type="string">https://www.krups.ua/media/mf_webp/jpg/media/catalog/product/cache/38345e2159b3dd0957eda1ffecaeede2/a/v/avtomaticheskaja-kofemashina-krups-essential-ea817010-foto-1.webp</argument>
+                    <argument name="wishlist_list_item_rating" xsi:type="number">90</argument>
+                    <argument name="wishlist_list_item_review" xsi:type="number">13</argument>
+                    <argument name="wishlist_list_item_price" xsi:type="number">14999</argument>
+                    <argument name="wishlist_list_item_old_price" xsi:type="number">21999</argument>
+                    </arguments>
+                    </block>
+                </container>
             </container>
 
+        </referenceContainer>
+        <referenceContainer name="footer-container">
+        <referenceContainer name="footer" remove="true"/>
         </referenceContainer>
 
         <move element="top.search" destination="search.leng.menu.wrapper" before="-"/>
