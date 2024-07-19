@@ -1,0 +1,65 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Wishlist\Block\Customer\Wishlist\Item\Column\Cart $block */
+/** @var \Magento\Wishlist\Block\Item\configure $blockk */
+
+/** @var \Magento\Wishlist\Model\Item $item */
+$item = $block->getItem();
+$product = $item->getProduct();
+/** @var \Magento\Wishlist\ViewModel\AllowedQuantity $viewModel */
+$viewModel = $block->getData('allowedQuantityViewModel');
+$allowedQty = $viewModel->setItem($item)->getMinMaxQty();
+?>
+<?php foreach ($block->getChildNames() as $childName) : ?>
+    <?= /* @noEscape */ $block->getLayout()->renderElement($childName, false) ?>
+<?php endforeach;?>
+<div class="box-tocart">
+    <fieldset class="fieldset">
+    <?php if ($item->canHaveQty() && $product->isVisibleInSiteVisibility()) : ?>
+        <div class="field qty">
+            <label class="label" for="qty[<?= $block->escapeHtmlAttr($item->getId()) ?>]"><span><?= $block->escapeHtml(__('Qty')) ?></span></label>
+            <div class="control">
+                <input type="number" data-role="qty" id="qty[<?= $block->escapeHtmlAttr($item->getId()) ?>]" class="input-text qty" data-validate="{'required-number':true,'validate-greater-than-zero':true, 'validate-item-quantity':{'minAllowed':<?= /* @noEscape */ $allowedQty['minAllowed'] ?>,'maxAllowed':<?= /* @noEscape */ $allowedQty['maxAllowed'] ?>}}"
+               name="qty[<?= $block->escapeHtmlAttr($item->getId()) ?>]" value="<?= /* @noEscape */ $block->getAddToCartQty($item) * 1 ?>" <?= $product->isSaleable() ? '' : 'disabled="disabled"' ?>>
+            </div>
+        </div>
+    <?php endif; ?>
+    <?php if ($product->isSaleable()) : ?>
+    <div class="product-item-actions">
+        <div class="actions-primary">
+            <button type="button" data-role="tocart" data-post='<?= /* @noEscape */ $block->getItemAddToCartParams($item) ?>' title="<?= $block->escapeHtmlAttr(__('Купити')) ?>" data-item-id="<?= $block->escapeHtmlAttr($item->getId()) ?>" class="action tocart primary">
+                <span>
+                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_8677_524)">
+                        <path d="M8.60547 20.3364C8.60547 20.6331 8.5175 20.9231 8.35267 21.1698C8.18785 21.4165 7.95358 21.6087 7.67949 21.7222C7.4054 21.8358 7.1038 21.8655 6.81283 21.8076C6.52186 21.7497 6.25459 21.6069 6.04481 21.3971C5.83503 21.1873 5.69217 20.92 5.63429 20.6291C5.57641 20.3381 5.60612 20.0365 5.71965 19.7624C5.83318 19.4883 6.02544 19.254 6.27211 19.0892C6.51879 18.9244 6.8088 18.8364 7.10547 18.8364C7.50329 18.8364 7.88482 18.9945 8.16613 19.2758C8.44743 19.5571 8.60547 19.9386 8.60547 20.3364ZM18.3555 18.8364C18.0588 18.8364 17.7688 18.9244 17.5221 19.0892C17.2754 19.254 17.0832 19.4883 16.9697 19.7624C16.8561 20.0365 16.8264 20.3381 16.8843 20.6291C16.9422 20.92 17.085 21.1873 17.2948 21.3971C17.5046 21.6069 17.7719 21.7497 18.0628 21.8076C18.3538 21.8655 18.6554 21.8358 18.9295 21.7222C19.2036 21.6087 19.4379 21.4165 19.6027 21.1698C19.7675 20.9231 19.8555 20.6331 19.8555 20.3364C19.8555 19.9386 19.6974 19.5571 19.4161 19.2758C19.1348 18.9945 18.7533 18.8364 18.3555 18.8364ZM21.9327 7.10455L20.2973 16.1046C20.2346 16.4503 20.0525 16.763 19.7828 16.9882C19.513 17.2133 19.1728 17.3366 18.8214 17.3364H6.64778C6.29661 17.3365 5.95653 17.2134 5.68687 16.9884C5.4172 16.7635 5.23504 16.451 5.17216 16.1055L3.37984 6.27702C3.37029 6.24052 3.36349 6.20335 3.3595 6.16583L2.79803 3.08643H1.10547C0.906556 3.08643 0.715791 3.00741 0.575139 2.86676C0.434486 2.7261 0.355469 2.53534 0.355469 2.33643C0.355469 2.13751 0.434486 1.94675 0.575139 1.8061C0.715791 1.66544 0.906556 1.58643 1.10547 1.58643H2.79803C3.1492 1.58635 3.48926 1.70952 3.75893 1.93447C4.02859 2.15941 4.21075 2.47187 4.27366 2.81736L4.73322 5.33643H20.457C20.6767 5.33643 20.8937 5.38469 21.0926 5.4778C21.2916 5.5709 21.4677 5.70658 21.6085 5.87524C21.7493 6.04389 21.8513 6.24142 21.9073 6.45384C21.9634 6.66626 21.9721 6.8884 21.9328 7.10455H21.9327ZM20.4569 6.83643H5.00659L6.64778 15.8364H18.8215L20.4569 6.83643Z" fill="white" />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_8677_524">
+                          <rect width="24" height="24" fill="white" transform="translate(0.355469 0.0864258)" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                </span>
+                <span>
+                    <?= $block->escapeHtml(__('Купити')) ?>
+                </span>
+            </button>
+        </div>
+    </div>
+    <?php else : ?>
+        <?php if ($product->getIsSalable()) : ?>
+            <p class="available stock" title="<?= $block->escapeHtmlAttr(__('Availability')) ?>">
+                <span><?= $block->escapeHtml(__('In stock')) ?></span>
+            </p>
+        <?php else : ?>
+            <p class="unavailable stock" title="<?= $block->escapeHtmlAttr(__('Availability')) ?>">
+                <span><?= $block->escapeHtml(__('Out of stock')) ?></span>
+            </p>
+        <?php endif; ?>
+    <?php endif; ?>
+    </fieldset>
+</div>

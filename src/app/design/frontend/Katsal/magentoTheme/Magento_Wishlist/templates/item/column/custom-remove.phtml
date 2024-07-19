@@ -1,0 +1,17 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/* @var \Magento\Wishlist\Block\Customer\Wishlist\Item\Column\Remove $block */
+?>
+
+<a href="#" data-role="remove" data-post-remove='<?= /* @noEscape */ $block->getItemRemoveParams($block->getItem()) ?>' title="<?= $block->escapeHtmlAttr(__('Remove Item')) ?>" class="btn-remove action delete custom-btn-remove">
+    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M8.34077 8.15168C8.60112 7.89133 9.02323 7.89133 9.28358 8.15168L15.6929 14.561C15.9532 14.8213 15.9532 15.2434 15.6929 15.5038C15.4325 15.7641 15.0104 15.7641 14.75 15.5038L8.34077 9.09449C8.08042 8.83414 8.08042 8.41203 8.34077 8.15168Z" fill="#D0CFCE" />
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M1.93159 1.74238C2.19194 1.48203 2.61405 1.48203 2.8744 1.74238L9.28367 8.15165C9.54402 8.412 9.54402 8.83411 9.28367 9.09446C9.02332 9.35481 8.60121 9.35481 8.34086 9.09446L1.93159 2.68519C1.67124 2.42484 1.67124 2.00273 1.93159 1.74238Z" fill="#D0CFCE" />
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.28367 8.15168C9.54402 8.41203 9.54402 8.83414 9.28367 9.09449L2.8744 15.5038C2.61405 15.7641 2.19194 15.7641 1.93159 15.5038C1.67124 15.2434 1.67124 14.8213 1.93159 14.561L8.34086 8.15168C8.60121 7.89133 9.02332 7.89133 9.28367 8.15168Z" fill="#D0CFCE" />
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M15.6929 1.74238C15.9532 2.00273 15.9532 2.42484 15.6929 2.68519L9.28358 9.09446C9.02323 9.35481 8.60112 9.35481 8.34077 9.09446C8.08042 8.83411 8.08042 8.412 8.34077 8.15165L14.75 1.74238C15.0104 1.48203 15.4325 1.48203 15.6929 1.74238Z" fill="#D0CFCE" />
+</svg>
+</a>

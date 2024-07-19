@@ -15,79 +15,41 @@
 /** @var \Magento\Contact\ViewModel\UserDataProvider $viewModel */
 
 // Получение данных из блока или ViewModel
-$wishlist_list_item_title = $block->escapeHtml($block->getData('wishlist_list_item_title'));
-$wishlist_list_item_photo = $block->escapeHtml($block->getData('wishlist_list_item_photo'));
+$wishlistItems = [
+    [
+        'title' => 'АВТОМАТИЧНА КАВОМАШИНА KRUPS ARABICA EA817010',
+        'photo' => 'https://www.krups.ua/media/mf_webp/jpg/media/catalog/product/cache/38345e2159b3dd0957eda1ffecaeede2/a/v/avtomaticheskaja-kofemashina-krups-essential-ea817010-foto-1.webp?auto=webp&format=pjpg&width=277&height=256&fit=cover',
+        'rating' => 4.5,
+        'review' => 'Great product!',
+        'price' => 100,
+        'old_price' => 150
+    ],
+    [
+        'title' => 'АВТОМАТИЧНА КАВОМАШИНА KRUPS ESSENTIAL EA816570',
+        'photo' => 'https://www.krups.ua/media/mf_webp/png/media/catalog/product/cache/38345e2159b3dd0957eda1ffecaeede2/w/e/webimage-8a022c8f-1490-4c66-86efe71f2b25df28.webp?auto=webp&format=pjpg&width=277&height=256&fit=cover',
+        'rating' => 4.0,
+        'review' => 'Very nice!',
+        'price' => 200,
+        'old_price' => 250
+    ],
+    // Додайте більше товарів за потреби
+];
 
-$wishlist_list_item_rating = $block->escapeHtml($block->getData('wishlist_list_item_rating'));
-$wishlist_list_item_review = $block->escapeHtml($block->getData('wishlist_list_item_review'));
-$wishlist_list_item_price = $block->escapeHtml($block->getData('wishlist_list_item_price'));
-$wishlist_list_item_old_price = $block->escapeHtml($block->getData('wishlist_list_item_old_price'));
-$wishlist_list_item_el_display = $block->escapeHtml($block->getData('wishlist_list_item_el_display'));
-$rating = $wishlist_list_item_rating ;
-$wishlist_list_discount = round(($wishlist_list_item_old_price - $wishlist_list_item_price) / $wishlist_list_item_old_price*100);
-$formattedPrice = number_format($wishlist_list_item_price, 0, '.', ' ');
 ?>
 
-<div class="product-card">
-        <div class="discount-banner"
-        style="display:<?=$wishlist_list_item_el_display?$wishlist_list_item_el_display:true?>"
-        >
-            <span>-<?=$wishlist_list_discount?></span>
-            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.732 7.69139C16.8158 7.60676 16.9161 7.53927 17.027 7.49283C17.1379 7.4464 17.2571 7.42195 17.3778 7.42093C17.4984 7.41991 17.6181 7.44233 17.7298 7.48688C17.8414 7.53143 17.9429 7.59722 18.0282 7.68041C18.1136 7.7636 18.181 7.86252 18.2267 7.97141C18.2724 8.0803 18.2954 8.19697 18.2944 8.31461C18.2933 8.43226 18.2682 8.54852 18.2206 8.65662C18.173 8.76471 18.1038 8.86248 18.017 8.94421L9.02051 17.7158C8.84912 17.8772 8.61957 17.9665 8.38131 17.9644C8.14304 17.9624 7.91512 17.8692 7.74663 17.705C7.57814 17.5407 7.48257 17.3185 7.4805 17.0862C7.47843 16.8538 7.57003 16.63 7.73556 16.4629L16.732 7.69139Z" fill="white" />
-              <path d="M10.9489 10.8244C10.608 11.1568 10.1457 11.3435 9.66354 11.3435C9.18142 11.3435 8.71904 11.1568 8.37813 10.8244C8.03722 10.492 7.8457 10.0412 7.8457 9.57116C7.8457 9.10109 8.03722 8.65028 8.37813 8.31789C8.71917 7.98538 9.1817 7.79858 9.66399 7.79858C10.1463 7.79858 10.6088 7.98538 10.9498 8.31789C11.2909 8.65039 11.4825 9.10137 11.4825 9.5716C11.4825 10.0418 11.2909 10.4928 10.9498 10.8253L10.9489 10.8244Z" fill="white" />
-              <path d="M14.8039 17.0894C15.1448 17.4218 15.6072 17.6085 16.0893 17.6085C16.5714 17.6085 17.0338 17.4218 17.3747 17.0894C17.7156 16.757 17.9072 16.3062 17.9072 15.8361C17.9072 15.366 17.7156 14.9152 17.3747 14.5828C17.0338 14.2505 16.5714 14.0637 16.0893 14.0637C15.6072 14.0637 15.1448 14.2505 14.8039 14.5828C14.463 14.9152 14.2715 15.366 14.2715 15.8361C14.2715 16.3062 14.463 16.757 14.8039 17.0894Z" fill="white" />
-            </svg>
-        </div>
-        <button class="close-btn">
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.34077 7.15168C7.60112 6.89133 8.02323 6.89133 8.28358 7.15168L14.6929 13.561C14.9532 13.8213 14.9532 14.2434 14.6929 14.5038C14.4325 14.7641 14.0104 14.7641 13.75 14.5038L7.34077 8.09449C7.08042 7.83414 7.08042 7.41203 7.34077 7.15168Z" fill="#D0CFCE" />
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.93159 0.742381C1.19194 0.482032 1.61405 0.482032 1.8744 0.742381L8.28367 7.15165C8.54402 7.412 8.54402 7.83411 8.28367 8.09446C8.02332 8.35481 7.60121 8.35481 7.34086 8.09446L0.93159 1.68519C0.671241 1.42484 0.671241 1.00273 0.93159 0.742381Z" fill="#D0CFCE" />
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.28367 7.15168C8.54402 7.41203 8.54402 7.83414 8.28367 8.09449L1.8744 14.5038C1.61405 14.7641 1.19194 14.7641 0.93159 14.5038C0.671241 14.2434 0.671241 13.8213 0.93159 13.561L7.34086 7.15168C7.60121 6.89133 8.02332 6.89133 8.28367 7.15168Z" fill="#D0CFCE" />
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M14.6929 0.742381C14.9532 1.00273 14.9532 1.42484 14.6929 1.68519L8.28358 8.09446C8.02323 8.35481 7.60112 8.35481 7.34077 8.09446C7.08042 7.83411 7.08042 7.412 7.34077 7.15165L13.75 0.742381C14.0104 0.482032 14.4325 0.482032 14.6929 0.742381Z" fill="#D0CFCE" />
-          </svg>
-        </button>
-            <img src=<?=$wishlist_list_item_photo ?> alt="Product Image" class="product-image">
-        <p class="wh-list_product-title"><?=$wishlist_list_item_title ?></p>
-        <div class="rating-summary"
-        id="rating-result"
-                  title="<?= $block->escapeHtmlAttr($rating) ?>%">
-             <div class="rating-result">
-                 <span style="width:<?= $block->escapeHtml($rating); ?>%;">
-                     <span >
-                         <span itemprop="ratingValue"><?= $block->escapeHtml($rating); ?>
-                         </span>% of <span itemprop="bestRating">100</span>
-                     </span>
-                 </span>
-             </div>
-                <span class="reviews-count">
-                  <?= $wishlist_list_item_review?> відгуки
-                </span>
-         </div>
-        <div class="product-price">
-            <span><?=$formattedPrice?> грн</span>
-            <span
-             style="display:<?=$wishlist_list_item_el_display?$wishlist_list_item_el_display:true?>"
-             class="product-old-price">
-            <?=$wishlist_list_item_old_price?> грн
-            </span>
-        </div>
-        <div class="buy-button_wrapper">
-          <button class="buy-button">
-            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g clip-path="url(#clip0_8569_524)">
-                <path d="M8.60547 20.3364C8.60547 20.6331 8.5175 20.9231 8.35267 21.1698C8.18785 21.4165 7.95358 21.6087 7.67949 21.7222C7.4054 21.8358 7.1038 21.8655 6.81283 21.8076C6.52186 21.7497 6.25459 21.6069 6.04481 21.3971C5.83503 21.1873 5.69217 20.92 5.63429 20.6291C5.57641 20.3381 5.60612 20.0365 5.71965 19.7624C5.83318 19.4883 6.02544 19.254 6.27211 19.0892C6.51879 18.9244 6.8088 18.8364 7.10547 18.8364C7.50329 18.8364 7.88482 18.9945 8.16613 19.2758C8.44743 19.5571 8.60547 19.9386 8.60547 20.3364ZM18.3555 18.8364C18.0588 18.8364 17.7688 18.9244 17.5221 19.0892C17.2754 19.254 17.0832 19.4883 16.9697 19.7624C16.8561 20.0365 16.8264 20.3381 16.8843 20.6291C16.9422 20.92 17.085 21.1873 17.2948 21.3971C17.5046 21.6069 17.7719 21.7497 18.0628 21.8076C18.3538 21.8655 18.6554 21.8358 18.9295 21.7222C19.2036 21.6087 19.4379 21.4165 19.6027 21.1698C19.7675 20.9231 19.8555 20.6331 19.8555 20.3364C19.8555 19.9386 19.6974 19.5571 19.4161 19.2758C19.1348 18.9945 18.7533 18.8364 18.3555 18.8364ZM21.9327 7.10455L20.2973 16.1046C20.2346 16.4503 20.0525 16.763 19.7828 16.9882C19.513 17.2133 19.1728 17.3366 18.8214 17.3364H6.64778C6.29661 17.3365 5.95653 17.2134 5.68687 16.9884C5.4172 16.7635 5.23504 16.451 5.17216 16.1055L3.37984 6.27702C3.37029 6.24052 3.36349 6.20335 3.3595 6.16583L2.79803 3.08643H1.10547C0.906556 3.08643 0.715791 3.00741 0.575139 2.86676C0.434486 2.7261 0.355469 2.53534 0.355469 2.33643C0.355469 2.13751 0.434486 1.94675 0.575139 1.8061C0.715791 1.66544 0.906556 1.58643 1.10547 1.58643H2.79803C3.1492 1.58635 3.48926 1.70952 3.75893 1.93447C4.02859 2.15941 4.21075 2.47187 4.27366 2.81736L4.73322 5.33643H20.457C20.6767 5.33643 20.8937 5.38469 21.0926 5.4778C21.2916 5.5709 21.4677 5.70658 21.6085 5.87524C21.7493 6.04389 21.8513 6.24142 21.9073 6.45384C21.9634 6.66626 21.9721 6.8884 21.9328 7.10455H21.9327ZM20.4569 6.83643H5.00659L6.64778 15.8364H18.8215L20.4569 6.83643Z" fill="white" />
-              </g>
-              <defs>
-                <clipPath id="clip0_8569_524">
-                  <rect width="24" height="24" fill="white" transform="translate(0.355469 0.0864258)" />
-                </clipPath>
-              </defs>
-            </svg>
-            <p>Купити<p>
-        </button>
-        <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M29.691 18.3259L25.5291 11.3376L25.1998 10.7767H28.9044C29.4624 10.7767 29.9106 10.3261 29.9106 9.76518C29.9106 9.20427 29.4624 8.7537 28.9044 8.7537H16.19V1.49866C16.19 0.937749 15.7418 0.487183 15.1838 0.487183C14.6258 0.487183 14.1776 0.937749 14.1776 1.49866V8.7629H1.46321C0.905237 8.7629 0.457031 9.21346 0.457031 9.77437C0.457031 10.3353 0.905237 10.7858 1.46321 10.7858H5.17691L4.84762 11.3468L0.676561 18.3259L0.603384 18.4547C0.502767 18.611 0.457031 18.7857 0.457031 18.9696C0.457031 22.5741 3.3658 25.4982 6.95144 25.4982C10.5371 25.4982 13.4459 22.5741 13.4459 18.9696C13.4459 18.7857 13.4001 18.611 13.2995 18.4547L13.2263 18.3259L9.06442 11.3376L8.73512 10.7767H21.6416L21.3123 11.3376L17.1413 18.3259L17.0681 18.4547C16.9766 18.611 16.9217 18.7949 16.9217 18.9696C16.9217 22.5741 19.8305 25.4982 23.4162 25.4982C27.0018 25.4982 29.9106 22.5741 29.9106 18.9696C29.9106 18.7857 29.8648 18.611 29.7642 18.4547L29.691 18.3259ZM11.1774 20.4684C10.5462 22.2707 8.84489 23.4753 6.95144 23.4753C5.058 23.4753 3.35665 22.2707 2.7255 20.4684L2.55171 19.9811H11.3512L11.1774 20.4684ZM10.3267 17.4064L10.656 17.9581H3.23774L3.56703 17.4064L6.6313 12.2663L6.9423 11.7422L7.2533 12.2663L10.3267 17.4064ZM20.0409 17.4064L23.1052 12.2663L23.4162 11.7422L23.7272 12.2663L26.7914 17.4064L27.1207 17.9581H19.7024L20.0409 17.4064ZM27.6421 20.4684C27.011 22.2615 25.3096 23.4753 23.4162 23.4753C21.5227 23.4753 19.8214 22.2707 19.1902 20.4684L19.0164 19.9811H27.8159L27.6421 20.4684Z" fill="#949494" />
-        </svg>
-        </div>
+<?php foreach ($wishlistItems as $item): ?>
+    <div class="product-card">
+        <img src="<?php echo $item['photo']; ?>" alt="<?php echo $item['title']; ?>" class="product-photo">
+        <h2 class="product-title"><?php echo $item['title']; ?></h2>
+        <p class="product-rating">Rating: <?php echo $item['rating']; ?></p>
+        <p class="product-review"><?php echo $item['review']; ?></p>
+        <p class="product-price">
+            Price: $<?php echo $item['price']; ?>
+            <?php if ($item['old_price'] > $item['price']): ?>
+                <span class="old-price">$<?php echo $item['old_price']; ?></span>
+            <?php endif; ?>
+        </p>
     </div>
+<?php endforeach; ?>
+
+
