@@ -17,35 +17,40 @@
 
             <container name="header-wrapper" htmlTag="header" htmlClass="header content header_custom_content">
                 <container name="header.custom-wrapper" htmlTag="div" htmlClass="custom-wrapper_header">
-                    <container name="review.header.wrapper.second" htmlTag="div" htmlClass="header_content_custom" before="-">
-                        <block class="Magento\Theme\Block\Html\Header\Logo" name="footer-logo">
-                            <arguments>
-                                <argument name="logoPathResolver" xsi:type="object">Magento\Theme\ViewModel\Block\Html\Header\LogoPathResolver</argument>
-                                <argument name="logo_size_resolver" xsi:type="object">Magento\Theme\ViewModel\Block\Html\Header\LogoSizeResolver</argument>
-                            </arguments>
-                        </block>
-                        <container name="nav.menu" htmlTag="div" htmlClass="nav_menu">
-                            <block name="nav_list" template="Magento_Wishlist::nav_list.phtml">
+                    <container name="header.left.side.wrapper" htmlTag="div" htmlClass="header_left_side_wrapper">
+                        <container name="header.left.side" htmlTag="div" htmlClass="header_left_side" before="-">
+                            <block class="Magento\Theme\Block\Html\Header\Logo" name="footer-logo">
                                 <arguments>
-                                    <argument name="item_first" xsi:type="string">woman</argument>
-                                    <argument name="item_second" xsi:type="string">men</argument>
+                                    <argument name="logoPathResolver" xsi:type="object">Magento\Theme\ViewModel\Block\Html\Header\LogoPathResolver</argument>
+                                    <argument name="logo_size_resolver" xsi:type="object">Magento\Theme\ViewModel\Block\Html\Header\LogoSizeResolver</argument>
                                 </arguments>
                             </block>
-                        </container>
-                    </container>
-                    <container name="header.left.side" htmlTag="div" htmlClass="header_right_side">
-                        <container name="svg.list" htmlTag="div" htmlClass="svg_list" after="review.header.wrapper.second">
-                            <block class="Magento\Framework\View\Element\Template" name="vendor.module.svgcontainer" template="Magento_Wishlist::svg-container.phtml" />
-                        </container>
-                        <container name="search.leng.menu.wrapper" htmlTag="div" htmlClass="wrapper">
-                            <container name="leng.wrapper" htmlTag="div" htmlClass="leng.wrapper">
-                                <block class="Magento\Framework\View\Element\Template" name="leng" template="Magento_Wishlist::leng.phtml" />
-                            </container>
-                            <container name="menu.svg.wrapper" htmlTag="div" htmlClass="menu.svg.wrapper" after="-">
-                                <block class="Magento\Framework\View\Element\Template" name="menu" template="Magento_Wishlist::menu_svg.phtml" />
+                            <container name="nav.menu" htmlTag="div" htmlClass="nav_menu">
+                                <block name="nav_list" template="Magento_Wishlist::nav_list.phtml">
+                                    <arguments>
+                                        <argument name="item_first" xsi:type="string">woman</argument>
+                                        <argument name="item_second" xsi:type="string">men</argument>
+                                    </arguments>
+                                </block>
                             </container>
                         </container>
                     </container>
+                    <container name="header.right.side.wrapper" htmlTag="div" htmlClass="header_right_side_wrapper">
+                        <container name="header.right.side" htmlTag="div" htmlClass="header_right_side">
+                            <container name="svg.list" htmlTag="div" htmlClass="svg_list" after="review.header.wrapper.second">
+                                <block class="Magento\Framework\View\Element\Template" name="vendor.module.svgcontainer" template="Magento_Wishlist::svg-container.phtml" />
+                            </container>
+                            <container name="search.leng.menu.wrapper" htmlTag="div" htmlClass="wrapper">
+                                <container name="leng.wrapper" htmlTag="div" htmlClass="leng.wrapper">
+                                    <block class="Magento\Framework\View\Element\Template" name="leng" template="Magento_Wishlist::leng.phtml" />
+                                </container>
+                                <container name="menu.svg.wrapper" htmlTag="div" htmlClass="menu.svg.wrapper" after="-">
+                                    <block class="Magento\Framework\View\Element\Template" name="menu" template="Magento_Wishlist::menu_svg.phtml" />
+                                </container>
+                            </container>
+                        </container>
+                    </container>
+
                 </container>
             </container>
         </referenceContainer>
@@ -87,16 +92,17 @@
         <referenceBlock name="customer.wishlist" template="Magento_Wishlist::custom-view.phtml">
 
             <referenceBlock name="sidebar.main.account_nav" remove="true"/>
-            <referenceBlock name="customer.wishlist.item.review" remove="true"/>
+            <!-- <referenceBlock name="customer.wishlist.item.review" remove="true"/> -->
             <referenceBlock name="customer.wishlist.item.comment" remove="true"/>
             <referenceBlock name="customer.wishlist.item.edit" remove="true"/>
-            <referenceBlock name="customer.wishlist.button.update" remove="true"/>
+            <referenceBlock name="customer.wishlist.button.update" remove="true"/> 
             <referenceContainer name="footer-container" remove="true"/>
             <referenceContainer name="before.body.end" remove="true"/>
 
-
-            <referenceBlock name="customer.wishlist.item.remove" template="Magento_Wishlist::item/column/custom-remove.phtml"/>
-            <block name="custom-add-to-compare" template="Magento_Wishlist::item/configure/addto.phtml" />
+            <referenceBlock name="customer.wishlist.item.actions">
+                <referenceBlock name="customer.wishlist.item.remove" template="Magento_Wishlist::item/column/custom-remove.phtml"/>
+                <block name="custom-add-to-compare" template="Magento_Wishlist::item/configure/addto.phtml" />
+            </referenceBlock>
         </referenceBlock>
 
         <referenceContainer name="customer.wishlist.buttons">

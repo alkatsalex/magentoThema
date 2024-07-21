@@ -57,6 +57,16 @@ p {
     width: 100%;
 }
 
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__l) {
+    .header.content {
+        max-width: none;
+    }
+}
+
 .custom-wrapper_header {
     width: 100%;
     margin-right: auto;
@@ -64,10 +74,14 @@ p {
     display: flex;
 }
 
-.header_content_custom {
+.header_left_side_wrapper {
+    width: 50%;
+}
+
+.header_left_side {
     display: flex;
-    margin-right: auto;
-    width: 100%;
+    margin-left: auto;
+    max-width: 960px;
 
     .nav_list {
         display: flex;
@@ -91,10 +105,15 @@ p {
     }
 }
 
+.header_right_side_wrapper {
+    width: 50%;
+    background-color: var(--dark-gray-bg);
+}
+
 .header_right_side {
     display: flex;
     background-color: var(--dark-gray-bg);
-    width: 100%;
+    max-width: 960px;
     .svg-icon-list ul {
         display: flex;
         gap: 40px; /* Расстояние между иконками */
@@ -120,6 +139,8 @@ p {
         margin-left: auto;
         margin-right: auto;
         text-align: center;
+        padding-bottom: 90px;
+        height: 440px;
     }
 }
 
@@ -150,6 +171,10 @@ p {
     text-transform: uppercase;
     text-align: center;
     color: var(--dark-gray-bg);
+}
+
+.rating-summary .rating-result > span:before {
+    color: #fbb732;
 }
 
 .price-box.price-final_price .price {
@@ -185,13 +210,24 @@ p {
     right: 16px;
 }
 
+.product-reviews-summary.short {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .product-item-inner {
+    position: absolute;
+    bottom: 33px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: row-reverse;
     width: 100%;
     justify-content: center;
     align-items: center;
     gap: 17px;
+
+    margin-top: 20px;
 }
 .action.tocompare::before {
     display: none;
