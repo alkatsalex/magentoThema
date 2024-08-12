@@ -40,44 +40,21 @@
                             <container name="svg.list" htmlTag="div" htmlClass="svg_list" after="review.header.wrapper.second">
                                 <block class="Magento\Framework\View\Element\Template" name="vendor.module.svgcontainer" template="Magento_Wishlist::svg-container.phtml" />
                             </container>
-                            <container name="search.leng.menu.wrapper" htmlTag="div" htmlClass="wrapper">
-                                <container name="leng.wrapper" htmlTag="div" htmlClass="leng.wrapper">
-                                    <block class="Magento\Framework\View\Element\Template" name="leng" template="Magento_Wishlist::leng.phtml" />
-                                </container>
+                            <container name="search.menu.wrapper" htmlTag="div" htmlClass="wrapper">
                                 <container name="menu.svg.wrapper" htmlTag="div" htmlClass="menu.svg.wrapper" after="-">
                                     <block class="Magento\Framework\View\Element\Template" name="menu" template="Magento_Wishlist::menu_svg.phtml" />
                                 </container>
                             </container>
                         </container>
                     </container>
-
                 </container>
             </container>
         </referenceContainer>
 
-        <!-- <container name="custom.breadcrumbs" htmlTag="div" htmlClass="custom_breadcrumbs" before="-">
-        <block name="custom.block.breadcrumbs" template="Magento_Wishlist::custom.breadcrumbs.phtml" />
-        </container>
-        <move element="custom.breadcrumbs" destination="content" before="-"/> -->
-
-        <referenceBlock name="navigation.sections" remove="true"/>
 
         <referenceContainer name="columns.top">
             <referenceBlock name="page.main.title" template="Magento_Wishlist::html/custom-wh-title.phtml"/>
         </referenceContainer>
-        <!-- <referenceContainer name="content">
-
-            <container name="custom.breadcrumbs" htmlTag="div" htmlClass="custom_breadcrumbs">
-                <block name="custom.block.breadcrumbs" template="Magento_Wishlist::custom.breadcrumbs.phtml" />
-            </container>
-            
-            <container name="custom.page.main.title" htmlTag="div" htmlClass="page-title-wrapper">
-                <block name="custom_title_wishlist" template="Magento_Wishlist::custom_title_wishlist.phtml"/>
-            </container>
-            <container name="buy_btn_wrapper" htmlTag="div" htmlClass="buy_btn_wrapper">
-                <block name="buy_btn" template="Magento_Wishlist::buy_btn.phtml"/>
-            </container>
-        </referenceContainer> -->
 
         <referenceContainer name="footer-container">
             <referenceContainer name="footer" remove="true"/>
@@ -87,33 +64,37 @@
         </container>
         <container name="custom-wishlist-footer" htmlTag="footer" htmlClass="custom-wishlist-footer">
             <block name="custom-wishlist-footer-block" template="Magento_Wishlist::custom-wishlist-footer-block.phtml"/>
+            <referenceBlock name="form.subscribe">
+                <arguments>
+                    <argument name="button_lock_manager" xsi:type="object">Magento\Framework\View\Element\ButtonLockManager</argument>
+                </arguments>
+            </referenceBlock>
         </container>
 
         <referenceBlock name="customer.wishlist" template="Magento_Wishlist::custom-view.phtml">
-
-            <referenceBlock name="sidebar.main.account_nav" remove="true"/>
-            <!-- <referenceBlock name="customer.wishlist.item.review" remove="true"/> -->
-            <referenceBlock name="customer.wishlist.item.comment" remove="true"/>
-            <referenceBlock name="customer.wishlist.item.edit" remove="true"/>
-            <referenceBlock name="customer.wishlist.button.update" remove="true"/> 
-            <referenceContainer name="footer-container" remove="true"/>
-            <referenceContainer name="before.body.end" remove="true"/>
-
+            <referenceContainer name="content">
+                <container name="custom.customer.wishlist.buttons" htmlTag="div" htmlClass="actions-toolbar-share-wrap" label="Wishlist Control Buttons" before="-">
+                    <container name="custom.wrapper.btn" htmlTag="div" htmlClass="custom-wrapper-btn" before="-">
+                    <block name="custom-remuve-all" template="Magento_Wishlist::button/remove-all.phtml"/>
+                    </container>
+                </container>
+            </referenceContainer>
             <referenceBlock name="customer.wishlist.item.actions">
                 <referenceBlock name="customer.wishlist.item.remove" template="Magento_Wishlist::item/column/custom-remove.phtml"/>
-                <block name="custom-add-to-compare" template="Magento_Wishlist::item/configure/addto.phtml" />
             </referenceBlock>
         </referenceBlock>
 
-        <referenceContainer name="customer.wishlist.buttons">
-            <referenceBlock name="customer.wishlist.button.update" remove="true"/>
-            <referenceBlock name="customer.wishlist.button.share" remove="true"/>
-            <referenceBlock name="customer.wishlist.button.toCart" />
-        </referenceContainer>
+        <referenceBlock name="navigation.sections" remove="true"/>
+        <referenceBlock name="customer.wishlist.button.update" remove="true"/>
+        <referenceBlock name="sidebar.main.account_nav" remove="true"/>
+        <referenceBlock name="customer.wishlist.item.comment" remove="true"/>
+        <referenceBlock name="customer.wishlist.item.edit" remove="true"/>
+        <referenceContainer name="before.body.end" remove="true"/>
 
         <move element="top.search" destination="search.leng.menu.wrapper" before="-"/>
         <move element="customer.wishlist.item.remove" destination="customer.wishlist.items" before="-"/>
         <move element="custom-add-to-compare" destination="customer.wishlist.item.cart" after="-"/>
+        <move element="customer.wishlist.button.share" destination="custom.wrapper.btn" before="-"/>
     </body>
 </page>
 

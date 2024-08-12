@@ -32,6 +32,18 @@ p {
     all: unset;
 }
 
+a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: inherit; /* Наследуем цвет текста от родителя */
+    background: none; /* Убираем фоновый цвет или изображение */
+    padding: 0; /* Убираем внутренние отступы */
+    margin: 0; /* Убираем внешние отступы */
+    border: none; /* Убираем рамки */
+}
+a:visited {
+    color: #9f9f9f;
+}
+
 .orange-dicoration {
     display: block;
     background: var(--orange);
@@ -105,6 +117,16 @@ p {
     }
 }
 
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    .logo {
+        margin-bottom: 0;
+    }
+}
+
 .header_right_side_wrapper {
     width: 50%;
     background-color: var(--dark-gray-bg);
@@ -124,7 +146,9 @@ p {
 }
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
+.wishlist {
+    margin-bottom: 58px;
+}
 .product-item {
     position: relative;
     background-color: var(--white);
@@ -216,10 +240,6 @@ p {
 }
 
 .product-item-inner {
-    position: absolute;
-    bottom: 33px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     flex-direction: row-reverse;
     width: 100%;
@@ -232,58 +252,6 @@ p {
 .action.tocompare::before {
     display: none;
 }
-// ////////////////////////////////////////Header
-
-// .media-width(@extremum, @break)
-//     when
-//     (@extremum = "min")
-//     and
-//     (@break = @screen__m) {
-//     .header.content {
-//         max-width: 10000px;
-//         padding: 0;
-//         width: 50%;
-//         margin: 0;
-//         background-color: var(--dark-gray-bg);
-//     }
-//     .logo {
-//         margin: 0;
-//         padding-left: 64px;
-//     }
-
-//     .page-main {
-//         max-width: 1444px;
-//         padding: 0;
-//         margin-left: auto;
-//         margin-right: auto;
-//     }
-// }
-
-// .header_content_custom {
-//     width: 50%;
-//     background-color: var(--gray-bg);
-//     display: flex;
-// }
-
-// .nav_list {
-//     list-style: none;
-//     display: flex;
-//     gap: 40px;
-//     height: 100%;
-//     li {
-//         margin-top: auto;
-//         margin-bottom: auto;
-//     }
-// }
-
-// .nav_menu {
-//     margin-left: auto;
-//     margin-right: 56px;
-//     font-weight: 600;
-//     font-size: 16px;
-//     text-transform: uppercase;
-//     color: #d0cfce;
-// }
 
 // //////////////////////////////////////////////////Header right side
 
@@ -292,8 +260,8 @@ p {
     margin-left: 56px;
     height: 78px;
     display: flex;
-    justify-content: center; /* Центрирование по горизонтали */
-    align-items: center; /* Центрирование по вертикали */
+    justify-content: center;
+    align-items: center;
 }
 
 .svg-icon-list {
@@ -306,7 +274,7 @@ p {
 
 .svg-icon-list ul {
     display: flex;
-    gap: 40px; /* Расстояние между иконками */
+    gap: 40px;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -323,13 +291,13 @@ p {
     display: inline-block;
     padding: 0;
     margin: 0;
-    text-decoration: none; /* Убираем подчеркивание у ссылок */
-    color: inherit; /* Наследуем цвет, чтобы текст ссылок не выделялся */
+    text-decoration: none;
+    color: inherit;
 }
 
 .svg-icon-list svg {
-    width: 24px; /* Маленький размер иконок */
-    height: 24px; /* Маленький размер иконок */
+    width: 24px;
+    height: 24px;
     display: inline-block;
 }
 
@@ -366,40 +334,6 @@ p {
     fill: #1c1a19;
 }
 
-// ///////////////////////////////////////// custom-breadcrumbs
-
-// .custom-breadcrumbs {
-//     position: absolute;
-//     top: 96px;
-//     left: 80px;
-//     display: flex;
-//     align-items: center;
-//     gap: 10px;
-//     width: 100%;
-//     margin-top: 16px;
-// }
-
-// .custom-breadcrumbs span {
-//     display: flex;
-//     align-items: center;
-//     gap: 5px;
-// }
-
-// .custom-breadcrumbs span svg {
-//     width: 16px;
-//     height: auto;
-//     fill: #bab9b8;
-// }
-
-// .custom-breadcrumbs span:last-child {
-//     font-weight: bold;
-// }
-
-// // drop style
-// .account .page-title-wrapper .page-title {
-//     margin-right: auto;
-// }
-// //
 // ////////////////////////////////////////////////Title
 
 .page-title-wrapper {
@@ -470,11 +404,82 @@ p {
     justify-content: center;
 }
 
+.action.tocart.buyall {
+    padding: 15px 20px;
+}
+
+.actions-toolbar > .primary .action:last-child {
+    margin: 0;
+}
+
+.actions-toolbar-share-wrap {
+    display: flex;
+    justify-content: baseline;
+    margin-bottom: 18px;
+}
+.share {
+    display: flex;
+    border: none;
+    background-color: inherit;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    &:hover {
+        border: none;
+        background-color: inherit;
+    }
+}
+
+.share {
+    display: flex;
+    border: none;
+    background-color: inherit;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    &:hover {
+        border: none;
+        background-color: inherit;
+    }
+}
+
+.remove {
+    display: flex;
+    border: none;
+    background-color: inherit;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    &:hover {
+        border: none;
+        background-color: inherit;
+    }
+}
+
+.custom-wrapper-btn {
+    display: flex;
+    gap: 50px;
+}
+
 // ////////////////////////////////////////////////////////////// Advantages
 .advantages-container {
     background-color: var(--gray-bg);
     align-content: center;
-    padding-top: 90px;
     padding-bottom: 90px;
     padding-left: 80px;
     padding-right: 100px;
@@ -494,7 +499,7 @@ p {
     font-size: 16px;
     text-align: center;
     color: #9f9f9f;
-    justify-content: space-between; /* Распределяет товары равномерно */
+    justify-content: space-between;
     margin-left: 80px;
     margin-right: 100px;
     margin-top: 60px;
@@ -512,47 +517,7 @@ p {
     color: var(--white);
 }
 
-// /////////////////////////////////////////////////////////////
-
-// .buy_btn_wrapper {
-//     position: relative;
-//     display: flex;
-//     margin-top: 60px;
-//     margin-bottom: 140px;
-//     align-items: center;
-//     justify-content: center;
-// }
-
-// .sum-text {
-//     position: absolute;
-//     top: 12px;
-//     left: 0;
-//     font-weight: 400;
-//     font-size: 18px;
-//     line-height: 144%;
-//     color: var(--dark-gray-bg);
-// }
-// .sum-text-b {
-//     font-weight: 600;
-//     line-height: 133%;
-//     text-transform: uppercase;
-// }
-
-// .buy-button.buy_btn {
-//     padding: 15px 30px;
-// }
 // //////////////////////////////////////////////////////////////////// footer
-a {
-    text-decoration: none; /* Убираем подчеркивание */
-    color: inherit; /* Наследуем цвет текста от родителя */
-    background: none; /* Убираем фоновый цвет или изображение */
-    padding: 0; /* Убираем внутренние отступы */
-    margin: 0; /* Убираем внешние отступы */
-    border: none; /* Убираем рамки */
-}
-a:visited {
-    color: #9f9f9f;
-}
 
 .custom-wishlist-footer {
     background-color: var(--dark-gray-bg);
@@ -617,7 +582,7 @@ a:visited {
 /////////////////////////////////////////////////
 
 .footer-feedbeck {
-    background-image: url(../../images/bg.jpg);
+    background-image: url(/home/alkatsalex/dev/magento/src/app/design/frontend/Katsal/magentoTheme/Magento_Wishlist/web/images/bg.jpg);
     background: linear-gradient(135deg, #001a00, #4d3b00, #000000);
     width: 32%;
     margin-left: auto;

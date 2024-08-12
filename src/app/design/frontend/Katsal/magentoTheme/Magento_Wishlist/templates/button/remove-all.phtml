@@ -1,0 +1,14 @@
+<?php
+
+/** @var \Magento\Wishlist\Block\Customer\Wishlist\Button $block */
+?>
+
+    <button type="submit" name="save_and_share" title="<?= $block->escapeHtmlAttr(__('Share Wish List')) ?>" class="action remove">
+        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.11719 9.02917H10.6172V18.0292H9.11719V9.02917Z" fill="#FC682E" />
+          <path d="M13.6172 9.02917H15.1172V18.0292H13.6172V9.02917Z" fill="#FC682E" />
+          <path d="M3.11719 4.52917V6.02917H4.61719V21.0292C4.61719 21.427 4.77522 21.8085 5.05653 22.0898C5.33783 22.3711 5.71936 22.5292 6.11719 22.5292H18.1172C18.515 22.5292 18.8965 22.3711 19.1778 22.0898C19.4592 21.8085 19.6172 21.427 19.6172 21.0292V6.02917H21.1172V4.52917H3.11719ZM6.11719 21.0292V6.02917H18.1172V21.0292H6.11719Z" fill="#FC682E" />
+          <path d="M9.11719 1.52917H15.1172V3.02917H9.11719V1.52917Z" fill="#FC682E" />
+        </svg>
+        <span><?= $block->escapeHtml(__('Видалити усі товари')) ?></span>
+    </button>
